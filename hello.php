@@ -35,13 +35,13 @@ if (!$name || !$email || !$school) {
         </form>
 </br>
         <?php
-           if (isset($_POST['submit'])) {
-            $text = $_POST['text'];
-            $letterCounts = array_count_values(str_split(preg_replace("/[^a-zA-Z]/", "", strtolower($text))));
-            $output = [];
-            foreach ($letterCounts as $letter => $count) {
-                $output[] = "\"$letter\" => $count";
-            }
+         if (isset($_POST['submit'])) {
+    $text = $_POST['text'];
+    $letterCounts = array_count_values(str_split(preg_replace("/\W/", "", strtolower($text))));
+    $output = [];
+    foreach ($letterCounts as $letter => $count) {
+        $output[] = "\"$letter\" => $count";
+    }
             echo '<div class="flex justify-center mt-8"><div class="w-2/3"><pre class="max-w-full text-white overflow-x-auto">' . htmlspecialchars('[' . implode(', ', $output) . ']') . '</pre></div></div>';
         }
         
