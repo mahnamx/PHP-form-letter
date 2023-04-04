@@ -6,7 +6,7 @@ $email = $_SESSION['email'] ?? '';
 $school = $_SESSION['school'] ?? '';
 
 if (!$name || !$email || !$school) {
-    header('Location: home.php');
+    header('Location: index.php');
     exit;
 }
 ?>
